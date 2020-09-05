@@ -53,3 +53,8 @@ Show LastPass status.  Either "Logged in as..." or "Not logged in."
 
 #### lpass
 Copy an item's password, username (with Control), URL (with Shift), or notes (with Command) to the clipboard.
+
+
+## GeekTool Refresher
+
+Tell GeekTool to refresh the chosen geeklet now.  Assumes all geeklets have a name.
