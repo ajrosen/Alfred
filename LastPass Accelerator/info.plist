@@ -638,7 +638,7 @@ echo -n $?</string>
 if [ $? != 0 ]; then
   echo '{ "items": [ { "title": "Login to LastPass" } ] }'
 else
-  echo '{ "items": [ ' $(${lppath} ls --format '{ "uid": "%ai", "title": "%aN", "arg": "%an", "subtitle": "%au", "autocomplete": "%an", "match": "%an" },' --color=never | sort -u) '] }'
+  echo '{ "items": [ {}' $(${lppath} ls --format ',{ "uid": "%ai", "title": "%aN", "arg": "%an", "subtitle": "%au", "autocomplete": "%an", "match": "%an" }' --color=never) '] }'
 fi
 </string>
 				<key>scriptargtype</key>
@@ -912,6 +912,19 @@ fi
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>triggerid</key>
+				<string>org.mlfs.corp.lpass.copy</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>83282D2B-7E24-4D5F-8B3E-2A90803F17E1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
@@ -927,19 +940,6 @@ fi
 			<string>D56E972E-63F6-4634-9B6D-2A03F31FE160</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>triggerid</key>
-				<string>org.mlfs.corp.lpass.copy</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.external</string>
-			<key>uid</key>
-			<string>83282D2B-7E24-4D5F-8B3E-2A90803F17E1</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1886,7 +1886,7 @@ Workflow Commands
 		<string>lpuser</string>
 	</array>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>
