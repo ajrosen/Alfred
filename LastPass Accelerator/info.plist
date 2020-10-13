@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>org.mlfs.corp.lpass</string>
 	<key>category</key>
-	<string>Tools</string>
+	<string>MLFS</string>
 	<key>connections</key>
 	<dict>
 		<key>04F8431E-0072-48C1-8A88-0AB04636318D</key>
@@ -255,6 +255,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>790F0111-979B-4854-92EE-73F27B4E44F8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FD9D54EC-C2A3-49BA-8911-50E8690360C3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>7E2B7D46-103D-46B1-86B5-7FF56035C67D</key>
 		<array>
 			<dict>
@@ -404,6 +417,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>D56E972E-63F6-4634-9B6D-2A03F31FE160</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D0858062-F83A-4E14-BDE1-215ABF332896</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>790F0111-979B-4854-92EE-73F27B4E44F8</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -594,9 +620,9 @@ echo -n $?</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>status_quiet.sh</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -638,7 +664,7 @@ echo -n $?</string>
 if [ $? != 0 ]; then
   echo '{ "items": [ { "title": "Login to LastPass" } ] }'
 else
-  echo '{ "items": [ {}' $(${lppath} ls --format ',{ "uid": "%ai", "title": "%aN", "arg": "%an", "subtitle": "%au", "autocomplete": "%an", "match": "%an" }' --color=never) '] }'
+  echo '{ "items": [ {}' $(${lppath} ls --format ',{ "uid": "%ai", "title": "%aN", "arg": "%ai", "subtitle": "%au", "autocomplete": "%an", "match": "%an" }' --color=never) '] }'
 fi
 </string>
 				<key>scriptargtype</key>
@@ -760,7 +786,7 @@ fi
 				<key>externaltriggerid</key>
 				<string>org.mlfs.corp.lpass.copy</string>
 				<key>passinputasargument</key>
-				<false/>
+				<true/>
 				<key>passvariables</key>
 				<true/>
 				<key>workflowbundleid</key>
@@ -798,9 +824,9 @@ fi
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>show_field.sh</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -881,7 +907,7 @@ fi
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>Failed to get password for {var:arg}</string>
+				<string>Failed to get {var:field} for {var:arg}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -951,9 +977,9 @@ fi
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>{var:arg}</string>
+				<string></string>
 				<key>title</key>
-				<string>{var:field} in clipboard for {var:TTL} seconds</string>
+				<string>{var:field} in clipboard for {var:ClipboardTime} seconds</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -1092,9 +1118,9 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>login.sh</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -1307,9 +1333,9 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>logout.sh</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -1351,9 +1377,9 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>status.sh</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -1396,6 +1422,73 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>LEN=${1:-20}
+
+${lppath} generate -c lpa ${LEN}</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>genpass.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>790F0111-979B-4854-92EE-73F27B4E44F8</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Password copied to clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>FD9D54EC-C2A3-49BA-8911-50E8690360C3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>lpgen</string>
+				<key>subtext</key>
+				<string>Optionally specify password length (default 20)</string>
+				<key>text</key>
+				<string>Generate a random password</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>D0858062-F83A-4E14-BDE1-215ABF332896</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>LastPass Accelerator uses the LastPass CLI.  The easiest way to install it is with brew:
@@ -1409,7 +1502,7 @@ If you have not installed brew, run this:
 
 Workflow Variables
 
-	ClipboardTimeout
+	ClipboardTime
 		Number of seconds a password is stored in the clipboard before restoring the clipboard to its previous contents
 
 	lppath
@@ -1633,7 +1726,7 @@ Workflow Commands
 			<key>colorindex</key>
 			<integer>8</integer>
 			<key>note</key>
-			<string>Set {var:arg}</string>
+			<string>Password</string>
 			<key>xpos</key>
 			<integer>230</integer>
 			<key>ypos</key>
@@ -1682,6 +1775,17 @@ Workflow Commands
 			<integer>310</integer>
 			<key>ypos</key>
 			<integer>810</integer>
+		</dict>
+		<key>790F0111-979B-4854-92EE-73F27B4E44F8</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>6</integer>
+			<key>note</key>
+			<string>lpass generate</string>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>1455</integer>
 		</dict>
 		<key>7E2B7D46-103D-46B1-86B5-7FF56035C67D</key>
 		<dict>
@@ -1807,12 +1911,23 @@ Workflow Commands
 			<key>ypos</key>
 			<integer>600</integer>
 		</dict>
+		<key>D0858062-F83A-4E14-BDE1-215ABF332896</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>6</integer>
+			<key>note</key>
+			<string>Generate a random password</string>
+			<key>xpos</key>
+			<integer>10</integer>
+			<key>ypos</key>
+			<integer>1455</integer>
+		</dict>
 		<key>D1994928-58F3-4B1F-A1D1-C3F45C19CED1</key>
 		<dict>
 			<key>colorindex</key>
 			<integer>12</integer>
 			<key>note</key>
-			<string>Login to LastPass</string>
+			<string>Copy field to clipboard</string>
 			<key>xpos</key>
 			<integer>660</integer>
 			<key>ypos</key>
@@ -1860,6 +1975,15 @@ Workflow Commands
 			<key>ypos</key>
 			<integer>405</integer>
 		</dict>
+		<key>FD9D54EC-C2A3-49BA-8911-50E8690360C3</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>6</integer>
+			<key>xpos</key>
+			<integer>310</integer>
+			<key>ypos</key>
+			<integer>1455</integer>
+		</dict>
 		<key>FDA17D6A-3626-4A4C-88A7-24574B03E270</key>
 		<dict>
 			<key>colorindex</key>
@@ -1886,7 +2010,7 @@ Workflow Commands
 		<string>lpuser</string>
 	</array>
 	<key>version</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>
