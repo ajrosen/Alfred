@@ -59,7 +59,7 @@ Copy an item's password, username (with Control), URL (with Shift), or notes (wi
 
 Like Authy, FreeOTP, Okta Verify, etc., but using your Mac and a SQLite database.
 
-**YOU MUST PROTECT THE DATABSE**
+**YOU MUST PROTECT THE DATABASE**
 
 The data stored is as sensitive as your passwords.  If someone gains access to your database they can create copies of every virtual MFA device you have stored.
 
