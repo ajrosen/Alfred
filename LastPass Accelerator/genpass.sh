@@ -2,4 +2,5 @@
 
 LEN=${1:-20}
 
-${lppath} generate -c lpa ${LEN}
+${lppath} generate ${symbols} -c lpa.$$ ${LEN}
+${lppath} rm lpa.$$
