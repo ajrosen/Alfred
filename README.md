@@ -30,6 +30,9 @@ If you have not installed brew, first run this:
 #### ClipboardTimeout
 Number of seconds a password is stored in the clipboard before restoring the clipboard to its previous contents
 
+#### PostNotification
+Whether to post a nofication each time a field is copied to the clipboard.  Default is "true".
+
 #### lppath
 Location of the LastPass CLI program
 
