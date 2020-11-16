@@ -14,7 +14,7 @@ else
 	if [ "${1}" == "" ]; then
 	    echo ',{ "title": "Add new MFA device", "arg": "add", "subtitle": "'${db}'" }'
 	fi
-	sqlite3 ${db} 'select alfred from totp order by alfred;' | grep -i '"title": "[^"]*'${1}'[^"]*"'
+	sqlite3 ${db} "SELECT ', { \"title\": \"' || issuer || ':' || account || (CASE username WHEN '' THEN '' ELSE ' (' || username || ')' END) || '\", \"arg\": \"' || secret_key || '\" }' FROM totp WHERE item like '%${1}%' ORDER BY item;"
     fi
 fi
 

@@ -711,11 +711,11 @@ do shell script "sqlite3 " &amp; db &amp; " \"select item from totp where secret
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>2</integer>
 				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
@@ -727,7 +727,7 @@ do shell script "sqlite3 " &amp; db &amp; " \"select item from totp where secret
 				<key>queuedelaymode</key>
 				<integer>0</integer>
 				<key>queuemode</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>runningsubtext</key>
 				<string>Fetching virtual MFA devices</string>
 				<key>script</key>
@@ -754,7 +754,7 @@ echo '] }'
 				<key>type</key>
 				<integer>8</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -1321,7 +1321,7 @@ brew install oath-toolkit qrencode zbar</string>
 		<string>db</string>
 	</array>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>1.2.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>
