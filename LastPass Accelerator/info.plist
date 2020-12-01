@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>org.mlfs.corp.lpass</string>
-	<key>category</key>
-	<string>MLFS</string>
 	<key>connections</key>
 	<dict>
 		<key>04F8431E-0072-48C1-8A88-0AB04636318D</key>
@@ -111,6 +109,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>25FD3440-4E62-4D66-B5AE-FE5E98424EA0</key>
+		<array/>
 		<key>39E1E46F-5CFB-4A76-BE3B-A79C7720F300</key>
 		<array>
 			<dict>
@@ -128,7 +128,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>76863E49-5F39-4A26-A36C-1648EF11CA41</string>
+				<string>926A5082-7EB7-45CF-A299-896E16CB45A8</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -173,6 +173,19 @@
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>8DD48B9A-E033-4673-B8C7-070D00A0FEA0</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>53576521-88F7-4780-A172-F44362D2F871</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>25FD3440-4E62-4D66-B5AE-FE5E98424EA0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -234,19 +247,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>141C58F3-DD37-4B1A-9CFB-DAD0E4D5E233</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>76863E49-5F39-4A26-A36C-1648EF11CA41</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>C3072265-DFA8-45FA-882B-B44D3AED37B9</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -339,6 +339,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>15EDC05D-96AB-4078-94B7-DE32D6392312</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>926A5082-7EB7-45CF-A299-896E16CB45A8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C3072265-DFA8-45FA-882B-B44D3AED37B9</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1099,6 +1112,24 @@ fi
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	tell application id "com.runningwithcrayons.Alfred" to set configuration "lpuser" to value q in workflow "org.mlfs.corp.lpass"
+	return q
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>926A5082-7EB7-45CF-A299-896E16CB45A8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1124,6 +1155,27 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>lpin</string>
+				<key>subtext</key>
+				<string>Account {var:lpuser}</string>
+				<key>text</key>
+				<string>Login to LastPass</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>39E1E46F-5CFB-4A76-BE3B-A79C7720F300</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>externaltriggerid</key>
 				<string>org.mlfs.corp.lpass.status</string>
 				<key>passinputasargument</key>
@@ -1137,26 +1189,6 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 			<string>alfred.workflow.output.callexternaltrigger</string>
 			<key>uid</key>
 			<string>141C58F3-DD37-4B1A-9CFB-DAD0E4D5E233</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<true/>
-				<key>variables</key>
-				<dict>
-					<key>lpuser</key>
-					<string>{query}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>76863E49-5F39-4A26-A36C-1648EF11CA41</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1190,13 +1222,13 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 						<key>matchstring</key>
 						<string></string>
 						<key>outputlabel</key>
-						<string>username</string>
+						<string>arg</string>
 						<key>uid</key>
 						<string>8D98DD95-868D-487A-AA92-6995916E55A9</string>
 					</dict>
 				</array>
 				<key>elselabel</key>
-				<string>no argument</string>
+				<string>no arg</string>
 			</dict>
 			<key>inboundconfig</key>
 			<dict>
@@ -1244,6 +1276,23 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 			<key>config</key>
 			<dict>
 				<key>argument</key>
+				<string>{var:lpuser}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>0C148762-504F-4B53-8F6B-B8C37A79F7EB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
 				<string>{query} {var:lpuser}</string>
 				<key>passthroughargument</key>
 				<false/>
@@ -1257,44 +1306,6 @@ echo "${lppass}" | ${lppath} login "${lpuser}"</string>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>615C3ACA-4C5A-4048-8F5E-A56562FA7000</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>keyword</key>
-				<string>lpin</string>
-				<key>subtext</key>
-				<string>Account {var:lpuser}</string>
-				<key>text</key>
-				<string>Login to LastPass</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>39E1E46F-5CFB-4A76-BE3B-A79C7720F300</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string>{var:lpuser}</string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>0C148762-504F-4B53-8F6B-B8C37A79F7EB</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1538,6 +1549,73 @@ ${lppath} generate -c lpa ${LEN}</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+	set AppleScript's text item delimiters to ","
+
+	set arg to first item of argv
+
+	set c to first text item of arg
+	set d to second text item of arg
+
+	set a to system attribute c
+	set t to system attribute "alfred_workflow_name"
+	set i to (system attribute "alfred_preferences") &amp; "/workflows/" &amp; (system attribute "alfred_workflow_uid") &amp; "/icon.icns"
+
+	set v to text returned of (display dialog d default answer a with title t with icon posix file i)
+
+	tell application id "com.runningwithcrayons.Alfred" to set configuration c to value v in workflow system attribute "alfred_workflow_bundleid"
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>configure.applescript</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>25FD3440-4E62-4D66-B5AE-FE5E98424EA0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>fixedorder</key>
+				<true/>
+				<key>items</key>
+				<string>[{"title":"Default LastPass username","arg":"lpuser,Enter LastPass username","subtitle":"{var:lpuser}"},{"title":"Seconds to keep item in clipboard","arg":"ClipboardTime,Set clipboard time in seconds","subtitle":"{var:ClipboardTime}"},{"title":"Show notification when item is copied to clipboard","arg":"PostNotifcation,Enter true to show notifications when an item is copied to the clipboard.\n\nEnter false to hide the notification.","subtitle":"{var:PostNotifcation}"},{"title":"Path to lpass command","arg":"lppath,Enter path to the lpass command","subtitle":"{var:lppath}"}]</string>
+				<key>keyword</key>
+				<string>lpconfigure</string>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Configure LastPass Accelerator</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>53576521-88F7-4780-A172-F44362D2F871</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>LastPass Accelerator uses the LastPass CLI.  The easiest way to install it is with brew:
@@ -1580,7 +1658,13 @@ Workflow Commands
 		Show LastPass status.  Either "Logged in as..." or "Not logged in."
 
 	lpass
-		Copy an item's password, username (with Control), URL (with Shift), or notes (with Command) to the clipboard.</string>
+		Copy an item's password, username (with Control), URL (with Shift), or notes (with Command) to the clipboard.
+
+	lpgen
+		Generate a random password.  Use Command to include symbols.
+
+	lpconfigure
+		Set values for the workflow's variables.</string>
 	<key>uidata</key>
 	<dict>
 		<key>04F8431E-0072-48C1-8A88-0AB04636318D</key>
@@ -1623,9 +1707,9 @@ Workflow Commands
 			<key>note</key>
 			<string>Get {var:lpuser}</string>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>295</integer>
 			<key>ypos</key>
-			<integer>805</integer>
+			<integer>845</integer>
 		</dict>
 		<key>112078D2-5A55-485E-8CBB-B1BABAA12AEE</key>
 		<dict>
@@ -1654,9 +1738,9 @@ Workflow Commands
 			<key>note</key>
 			<string>Show status</string>
 			<key>xpos</key>
-			<integer>885</integer>
+			<integer>890</integer>
 			<key>ypos</key>
-			<integer>725</integer>
+			<integer>800</integer>
 		</dict>
 		<key>15B49912-0B9C-41B2-84B6-AD60D30E593E</key>
 		<dict>
@@ -1689,6 +1773,15 @@ Workflow Commands
 			<key>ypos</key>
 			<integer>445</integer>
 		</dict>
+		<key>25FD3440-4E62-4D66-B5AE-FE5E98424EA0</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>2</integer>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>1410</integer>
+		</dict>
 		<key>29FAA8E1-799E-4D66-BBAD-3DECC39FCC7E</key>
 		<dict>
 			<key>colorindex</key>
@@ -1716,9 +1809,9 @@ Workflow Commands
 			<key>colorindex</key>
 			<integer>5</integer>
 			<key>xpos</key>
-			<integer>170</integer>
+			<integer>165</integer>
 			<key>ypos</key>
-			<integer>755</integer>
+			<integer>820</integer>
 		</dict>
 		<key>3C86977B-ADF2-4A8F-B48B-E03680354140</key>
 		<dict>
@@ -1750,6 +1843,17 @@ Workflow Commands
 			<integer>825</integer>
 			<key>ypos</key>
 			<integer>540</integer>
+		</dict>
+		<key>53576521-88F7-4780-A172-F44362D2F871</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>2</integer>
+			<key>note</key>
+			<string>Configure LastPass Accelerator</string>
+			<key>xpos</key>
+			<integer>10</integer>
+			<key>ypos</key>
+			<integer>1410</integer>
 		</dict>
 		<key>55081E5D-7FBC-49C7-B18D-9FA155DD3411</key>
 		<dict>
@@ -1791,9 +1895,9 @@ Workflow Commands
 			<key>note</key>
 			<string>Set {var:lppass}</string>
 			<key>xpos</key>
-			<integer>560</integer>
+			<integer>585</integer>
 			<key>ypos</key>
-			<integer>770</integer>
+			<integer>845</integer>
 		</dict>
 		<key>67F3CD8A-B5B3-49A6-A0CA-1DDCB4EC3C68</key>
 		<dict>
@@ -1813,20 +1917,9 @@ Workflow Commands
 			<key>note</key>
 			<string>lpass login</string>
 			<key>xpos</key>
-			<integer>725</integer>
+			<integer>745</integer>
 			<key>ypos</key>
-			<integer>725</integer>
-		</dict>
-		<key>76863E49-5F39-4A26-A36C-1648EF11CA41</key>
-		<dict>
-			<key>colorindex</key>
-			<integer>5</integer>
-			<key>note</key>
-			<string>Set {var:lpuser}</string>
-			<key>xpos</key>
-			<integer>310</integer>
-			<key>ypos</key>
-			<integer>730</integer>
+			<integer>800</integer>
 		</dict>
 		<key>790F0111-979B-4854-92EE-73F27B4E44F8</key>
 		<dict>
@@ -1855,9 +1948,9 @@ Workflow Commands
 			<key>colorindex</key>
 			<integer>5</integer>
 			<key>xpos</key>
-			<integer>640</integer>
+			<integer>660</integer>
 			<key>ypos</key>
-			<integer>760</integer>
+			<integer>835</integer>
 		</dict>
 		<key>85C396F7-158A-4D92-81CA-16EEE764A1AF</key>
 		<dict>
@@ -1887,6 +1980,17 @@ Workflow Commands
 			<integer>360</integer>
 			<key>ypos</key>
 			<integer>510</integer>
+		</dict>
+		<key>926A5082-7EB7-45CF-A299-896E16CB45A8</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>5</integer>
+			<key>note</key>
+			<string>set {var:lpuser}</string>
+			<key>xpos</key>
+			<integer>260</integer>
+			<key>ypos</key>
+			<integer>690</integer>
 		</dict>
 		<key>996B73DF-8AFE-435D-A717-F8ECA40E7377</key>
 		<dict>
@@ -1924,9 +2028,9 @@ Workflow Commands
 			<key>note</key>
 			<string>Get LastPass password</string>
 			<key>xpos</key>
-			<integer>405</integer>
+			<integer>430</integer>
 			<key>ypos</key>
-			<integer>740</integer>
+			<integer>815</integer>
 		</dict>
 		<key>CC7BABFE-3A10-4AB2-B0F2-BBE54C1C0B5A</key>
 		<dict>
@@ -2044,14 +2148,14 @@ Workflow Commands
 		<key>lppath</key>
 		<string>/usr/local/bin/lpass</string>
 		<key>lpuser</key>
-		<string>ajr@mlfs.org</string>
+		<string>ajr@corp.mlfs.org</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
 		<string>lpuser</string>
 	</array>
 	<key>version</key>
-	<string>1.2.0</string>
+	<string>1.3.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>
