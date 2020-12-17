@@ -9,7 +9,7 @@ clean () {
 ${lppath} status -q
 
 if [ $? != 0 ]; then
-    echo '{ "items": [ { "title": "Login to LastPass" } ] }'
+    echo '{ "items": [ { "title": "Login to LastPass", "subtitle": "'${lpuser}'" } ] }'
 else
     ${lppath} ls --format %ai > id
     ${lppath} ls --format %au | sed 's/["\\]/\\&/g' > user
