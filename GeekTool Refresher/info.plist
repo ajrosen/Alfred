@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>org.mlfs.corp.geektool</string>
 	<key>category</key>
-	<string>Tools</string>
+	<string>MLFS</string>
 	<key>connections</key>
 	<dict>
 		<key>62577A79-A07D-4518-8F72-D2C978DC9031</key>
@@ -128,7 +128,9 @@ end run</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Tell [GeekTool](https://www.tynsoe.org/geektool/) to refresh the chosen geeklet now.  Assumes all geeklets have a name.
+
+`brew install geektool`</string>
 	<key>uidata</key>
 	<dict>
 		<key>62577A79-A07D-4518-8F72-D2C978DC9031</key>
@@ -146,6 +148,10 @@ end run</string>
 			<integer>10</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>

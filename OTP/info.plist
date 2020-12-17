@@ -161,7 +161,7 @@
 				<key>destinationuid</key>
 				<string>94992E3A-13B1-41F5-B150-354A29721979</string>
 				<key>modifiers</key>
-				<integer>524288</integer>
+				<integer>1048576</integer>
 				<key>modifiersubtext</key>
 				<string>Show QR code</string>
 				<key>vitoclose</key>
@@ -756,6 +756,11 @@ echo '] }'
 				<key>withspace</key>
 				<true/>
 			</dict>
+			<key>inboundconfig</key>
+			<dict>
+				<key>inputmode</key>
+				<integer>1</integer>
+			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
@@ -1059,21 +1064,20 @@ qrencode -o - -t asciii "${KEY}"</string>
 	<key>readme</key>
 	<string>Like Authy, FreeOTP, Okta Verify, etc., but using your Mac and a SQLite database.
 
-
-YOU MUST PROTECT THE DATABASE
+**YOU MUST PROTECT THE DATABASE**
 
 The data stored is as sensitive as your passwords.  If someone gains access to your database they can create copies of every virtual MFA device you have stored.
 
 
-There is an additional field, Username, useful when you have multiple logins to the same account.  Eg., an AWS account where you have separate MFA devices for the root account and different IAM users.
+There is an additional field, ***Username***, useful when you have multiple logins to the same account.  Eg., an AWS account where you have separate MFA devices for the root account and different IAM users.
 
-    Shift:      Show the code using Large Type
-    Option:     Show the MFA device's QR code
-    Control:    Automatically paste the code to the frontmost app
+&gt; - Ctrl - Automatically paste the code to the frontmost app
+&gt; - Shift - Show the code using Large Type
+&gt; - CMD - Show the MFA device's QR code
 
 You can scan the QR code into your favorite phone app.
 
-brew install oath-toolkit qrencode zbar</string>
+`brew install oath-toolkit qrencode zbar`</string>
 	<key>uidata</key>
 	<dict>
 		<key>0CF76333-BDFF-4132-88FB-2FBB23F88454</key>
@@ -1321,7 +1325,7 @@ brew install oath-toolkit qrencode zbar</string>
 		<string>db</string>
 	</array>
 	<key>version</key>
-	<string>1.2.0</string>
+	<string>1.2.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>

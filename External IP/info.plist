@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>org.mlfs.corp.myip</string>
 	<key>category</key>
-	<string>Internet</string>
+	<string>MLFS</string>
 	<key>connections</key>
 	<dict>
 		<key>00AED139-5708-4A58-BDB4-2781284B5318</key>
@@ -312,23 +312,54 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
 				<key>keyword</key>
 				<string>myip</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Getting address</string>
+				<key>script</key>
+				<string>IP=$(dig +short myip.opendns.com @resolver1.opendns.com | awk '{ print $1 }')
+
+echo '{ "items": [ { "title": "Get external IP address", "subtitle": "'${IP}'" } ] }'
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>subtext</key>
-				<string>Shift: large / Cmd:  clipboard / Ctrl: paste</string>
-				<key>text</key>
+				<string></string>
+				<key>title</key>
 				<string>Get external IP address</string>
+				<key>type</key>
+				<integer>0</integer>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>D5167344-77F4-4888-BF01-A70D1640AE47</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -415,13 +446,11 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Fetch your external IP address by sending a DNS query to resolver1.opendns.com
+	<string>Show your external IP address by sending a DNS query to resolver1.opendns.com
 
-Shift:	Show large type
-Cmd:		Copy to clipboard
-Control:	Copy to clipboard and paste to front most app
-
-With no modifiers show the address in a notification</string>
+- `Ctrl` Copy to clipboard and paste to front most app
+- `Shift` Show large type
+- `CMD` Copy to clipboard</string>
 	<key>uidata</key>
 	<dict>
 		<key>00AED139-5708-4A58-BDB4-2781284B5318</key>
@@ -433,7 +462,7 @@ With no modifiers show the address in a notification</string>
 			<key>xpos</key>
 			<integer>240</integer>
 			<key>ypos</key>
-			<integer>375</integer>
+			<integer>345</integer>
 		</dict>
 		<key>420F3326-83EE-4AF7-96CD-641AB3EAF777</key>
 		<dict>
@@ -444,7 +473,7 @@ With no modifiers show the address in a notification</string>
 			<key>xpos</key>
 			<integer>240</integer>
 			<key>ypos</key>
-			<integer>140</integer>
+			<integer>145</integer>
 		</dict>
 		<key>5245A03A-D0A1-4F5E-B44E-B1BAF1A1BECC</key>
 		<dict>
@@ -462,7 +491,7 @@ With no modifiers show the address in a notification</string>
 			<key>xpos</key>
 			<integer>240</integer>
 			<key>ypos</key>
-			<integer>220</integer>
+			<integer>225</integer>
 		</dict>
 		<key>996F8BF4-763A-48B4-80C4-34932405B59A</key>
 		<dict>
