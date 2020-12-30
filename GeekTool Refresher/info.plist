@@ -14,6 +14,16 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>02A27D2A-799C-4D8E-8C09-9A4062D1F83A</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Refresh all geeklets</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>62577A79-A07D-4518-8F72-D2C978DC9031</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -37,27 +47,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)
-
-tell application "GeekTool Helper"
-	set g to (geeklets where name is q)	tell first item of g		refresh
-	end tellend tellend alfred_script</string>
-				<key>cachescript</key>
+				<key>concurrently</key>
 				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+	tell application "GeekTool Helper" to refresh all
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>62577A79-A07D-4518-8F72-D2C978DC9031</string>
+			<string>02A27D2A-799C-4D8E-8C09-9A4062D1F83A</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
 				<key>alfredfiltersresults</key>
-				<true/>
+				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
@@ -89,10 +105,10 @@ tell application "GeekTool Helper"
 	set r to "{ \"items\": ["
 
 	repeat with g in geeklets
-		if (name of g) is not missing value then
+		if (name of g) is not missing value and (visible of g) then
 			set r to r &amp; " {"
-			set r to r &amp; "\"uid\": \"" &amp; (name of g) &amp; "\","
-			set r to r &amp; "\"arg\": \"" &amp; (name of g) &amp; "\","
+			set r to r &amp; "\"uid\": \"" &amp; (id of g) &amp; "\","
+			set r to r &amp; "\"arg\": \"" &amp; (id of g) &amp; "\","
 			set r to r &amp; "\"title\": \"" &amp; (name of g) &amp; "\","
 			set r to r &amp; "\"subtitle\": \"" &amp; (class of g) &amp; "\","
 			set r to r &amp; "\"autocomplete\": \"" &amp; (name of g) &amp; "\","
@@ -111,7 +127,7 @@ end run</string>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Use control to refresh all geeklets</string>
 				<key>title</key>
 				<string>GeekTool refresher</string>
 				<key>type</key>
@@ -126,32 +142,62 @@ end run</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+
+tell application "GeekTool Helper"
+	set g to (geeklets where id is q)	tell first item of g		refresh
+	end tellend tellend alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>62577A79-A07D-4518-8F72-D2C978DC9031</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
-	<string>Tell [GeekTool](https://www.tynsoe.org/geektool/) to refresh the chosen geeklet now.  Assumes all geeklets have a name.
+	<string>Tell [GeekTool](https://www.tynsoe.org/geektool/) to refresh the chosen geeklet now.  Use Control on any geeklet to refresh all geeklets.
 
 `brew install geektool`</string>
 	<key>uidata</key>
 	<dict>
-		<key>62577A79-A07D-4518-8F72-D2C978DC9031</key>
+		<key>02A27D2A-799C-4D8E-8C09-9A4062D1F83A</key>
 		<dict>
+			<key>note</key>
+			<string>Refresh all geeklets</string>
 			<key>xpos</key>
 			<integer>185</integer>
 			<key>ypos</key>
 			<integer>10</integer>
+		</dict>
+		<key>62577A79-A07D-4518-8F72-D2C978DC9031</key>
+		<dict>
+			<key>note</key>
+			<string>Refresh geeklet</string>
+			<key>xpos</key>
+			<integer>185</integer>
+			<key>ypos</key>
+			<integer>145</integer>
 		</dict>
 		<key>AA9CF070-2017-4132-9C1A-EB37F9107142</key>
 		<dict>
 			<key>xpos</key>
 			<integer>10</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>80</integer>
 		</dict>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>1.1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>
