@@ -6,9 +6,19 @@ BEGIN {
 {
     getline id < "id"
     getline user < "user"
+    getline path < "path"
+    getline url < "url"
 
-    printf(",{ \"uid\": \"%s\", \"title\": \"%s\", \"arg\": \"%s\", \"subtitle\": \"%s\", \"autocomplete\": \"%s\", \"match\": \"%s\" }\n",
-	   id, $0, id, user, $NF, $NF)
+    if ((url == "http://group") || (url == "http://sn")) {
+	next
+    }
+
+    x = tolower(arg)
+
+    if ((tolower(user) ~ x) || (tolower(path) ~ x) || (tolower(url) ~ x)) {
+	printf(",{ \"uid\": \"%s\", \"title\": \"%s\", \"subtitle\": \"%s\", \"arg\": \"%s\" }\n",
+	       id, path, user, id)
+    }
 }
 
 END {

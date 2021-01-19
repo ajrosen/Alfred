@@ -189,6 +189,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>210A8DEC-20B5-4BFE-9058-1F44B129C822</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>55081E5D-7FBC-49C7-B18D-9FA155DD3411</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>221A2295-A010-4C90-AAFE-3BDC72E530BE</key>
 		<array>
 			<dict>
@@ -582,7 +595,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>55081E5D-7FBC-49C7-B18D-9FA155DD3411</string>
+				<string>210A8DEC-20B5-4BFE-9058-1F44B129C822</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1072,7 +1085,7 @@ echo -n $?</string>
 			<key>config</key>
 			<dict>
 				<key>alfredfiltersresults</key>
-				<true/>
+				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>2</integer>
 				<key>argumenttreatemptyqueryasnil</key>
@@ -1090,7 +1103,7 @@ echo -n $?</string>
 				<key>queuedelayimmediatelyinitially</key>
 				<true/>
 				<key>queuedelaymode</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
@@ -1146,6 +1159,29 @@ fi
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>rm -f id path url user</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>210A8DEC-20B5-4BFE-9058-1F44B129C822</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>{query}</string>
 				<key>passthroughargument</key>
@@ -1162,27 +1198,6 @@ fi
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>7E2B7D46-103D-46B1-86B5-7FF56035C67D</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query} ({var:lppass})</string>
-				<key>title</key>
-				<string>Failed to get {var:field} for {var:arg}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>2419BEC9-1F05-4F1D-86C4-5D3020784F54</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3119,6 +3134,15 @@ All commands start with ***lp***, so there's only one thing to remember.
 			<key>ypos</key>
 			<integer>365</integer>
 		</dict>
+		<key>210A8DEC-20B5-4BFE-9058-1F44B129C822</key>
+		<dict>
+			<key>note</key>
+			<string>rm -f id path url user</string>
+			<key>xpos</key>
+			<integer>715</integer>
+			<key>ypos</key>
+			<integer>150</integer>
+		</dict>
 		<key>221A2295-A010-4C90-AAFE-3BDC72E530BE</key>
 		<dict>
 			<key>colorindex</key>
@@ -3129,17 +3153,6 @@ All commands start with ***lp***, so there's only one thing to remember.
 			<integer>355</integer>
 			<key>ypos</key>
 			<integer>2165</integer>
-		</dict>
-		<key>2419BEC9-1F05-4F1D-86C4-5D3020784F54</key>
-		<dict>
-			<key>colorindex</key>
-			<integer>1</integer>
-			<key>note</key>
-			<string>Reprompt</string>
-			<key>xpos</key>
-			<integer>870</integer>
-			<key>ypos</key>
-			<integer>190</integer>
 		</dict>
 		<key>25FD3440-4E62-4D66-B5AE-FE5E98424EA0</key>
 		<dict>
@@ -3295,7 +3308,7 @@ All commands start with ***lp***, so there's only one thing to remember.
 			<key>note</key>
 			<string>Get field from item in LastPass</string>
 			<key>xpos</key>
-			<integer>715</integer>
+			<integer>870</integer>
 			<key>ypos</key>
 			<integer>150</integer>
 		</dict>
@@ -3741,7 +3754,7 @@ All commands start with ***lp***, so there's only one thing to remember.
 		<string>lpuser</string>
 	</array>
 	<key>version</key>
-	<string>2.0.0</string>
+	<string>2.2.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>
