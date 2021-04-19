@@ -441,37 +441,13 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>4A7A97DF-15D5-4976-B36F-AEF349A71FC2</string>
+				<string>9805CCBF-1BAC-43FB-B904-CF770377A45C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>AA6FADBE-B0F8-459A-8162-671A1D9C8370</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>4A7A97DF-15D5-4976-B36F-AEF349A71FC2</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>2657FF5B-BF71-4869-9E56-33714A282641</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>4A7A97DF-15D5-4976-B36F-AEF349A71FC2</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>056BB700-F25A-4071-8DF6-D992F3965898</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -508,6 +484,30 @@
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>1BBF6C4E-9F64-444A-B9F2-59C5C6BD07DA</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8EF17A5D-210E-4DBC-A4B4-27020FAABC62</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>2657FF5B-BF71-4869-9E56-33714A282641</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8EF17A5D-210E-4DBC-A4B4-27020FAABC62</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>056BB700-F25A-4071-8DF6-D992F3965898</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -643,6 +643,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>9805CCBF-1BAC-43FB-B904-CF770377A45C</key>
+		<array/>
 		<key>A9D94E13-4878-4C99-94FD-909574843691</key>
 		<array>
 			<dict>
@@ -1488,7 +1490,7 @@ fi
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
-				<string>{var:clip}</string>
+				<string>{var:clip1}</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>transient</key>
@@ -1507,7 +1509,7 @@ fi
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
-				<string>{query}</string>
+				<string>{var:password}</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>transient</key>
@@ -1559,6 +1561,8 @@ fi
 				<false/>
 				<key>variables</key>
 				<dict>
+					<key>clip1</key>
+					<string>{clipboard}</string>
 					<key>password</key>
 					<string>{query}</string>
 				</dict>
@@ -2138,6 +2142,7 @@ ${lppath} generate -c lpa ${LEN}</string>
 	set v to text returned of (display dialog d default answer a with title t with icon posix file i)
 
 	tell application id "com.runningwithcrayons.Alfred" to set configuration c to value v in workflow system attribute "alfred_workflow_bundleid"
+	display notification c &amp; " set to " &amp; v with title "LastPass Accelerator configuration updated"
 end run</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -2198,17 +2203,31 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>soundname</key>
-				<string>Basso</string>
-				<key>systemsound</key>
+				<key>concurrently</key>
 				<true/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+
+tell application "TextEdit"
+    display notification (get system attribute "lpitem") with title argv
+end tell
+
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>edit_item.sh</string>
+				<key>type</key>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.playsound</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>4A7A97DF-15D5-4976-B36F-AEF349A71FC2</string>
+			<string>9805CCBF-1BAC-43FB-B904-CF770377A45C</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2239,7 +2258,7 @@ end run</string>
 						<key>matchstring</key>
 						<string>edit</string>
 						<key>outputlabel</key>
-						<string>edit</string>
+						<string>!edit</string>
 						<key>uid</key>
 						<string>AA6FADBE-B0F8-459A-8162-671A1D9C8370</string>
 					</dict>
@@ -2253,7 +2272,7 @@ end run</string>
 						<key>matchstring</key>
 						<string>share</string>
 						<key>outputlabel</key>
-						<string>share</string>
+						<string>!share</string>
 						<key>uid</key>
 						<string>2657FF5B-BF71-4869-9E56-33714A282641</string>
 					</dict>
@@ -2309,7 +2328,7 @@ end run</string>
 						<key>matchstring</key>
 						<string>show</string>
 						<key>outputlabel</key>
-						<string>show</string>
+						<string>!show</string>
 						<key>uid</key>
 						<string>056BB700-F25A-4071-8DF6-D992F3965898</string>
 					</dict>
@@ -2378,7 +2397,7 @@ end run</string>
 				<key>fixedorder</key>
 				<true/>
 				<key>items</key>
-				<string>[{"title":"Launch","arg":"launch","subtitle":"Open item's URL"},{"title":"","arg":"edit\t","subtitle":"Edit item"},{"title":"","arg":"share","subtitle":"Change share options"},{"title":"Delete","arg":"rm","subtitle":"Remove item"},{"title":"Move","arg":"mv","subtitle":"Move item to a different folder"},{"title":"Duplicate","arg":"duplicate","subtitle":"Duplicate item"},{"arg":"show","subtitle":"Show all fields"}]</string>
+				<string>[{"title":"Launch","arg":"launch","subtitle":"Open item's URL"},{"title":"","arg":"edit","subtitle":"Edit item"},{"title":"","arg":"share","subtitle":"Change share options"},{"title":"Delete","arg":"rm","subtitle":"Remove item"},{"title":"Move","arg":"mv","subtitle":"Move item to a different folder"},{"title":"Duplicate","arg":"duplicate","subtitle":"Duplicate item"},{"title":"","arg":"show","subtitle":"Show all fields"}]</string>
 				<key>keyword</key>
 				<string>lpassmore</string>
 				<key>runningsubtext</key>
@@ -2705,7 +2724,7 @@ echo Duplicated $(${lppath} show --name ${lpitem})</string>
 						<key>matchstring</key>
 						<string>add</string>
 						<key>outputlabel</key>
-						<string>add</string>
+						<string>!add</string>
 						<key>uid</key>
 						<string>DDB1FF0D-911D-4422-AAE8-02B7A5E874B7</string>
 					</dict>
@@ -3254,13 +3273,6 @@ All commands start with ***lp***, so there's only one thing to remember.
 			<key>ypos</key>
 			<integer>1620</integer>
 		</dict>
-		<key>4A7A97DF-15D5-4976-B36F-AEF349A71FC2</key>
-		<dict>
-			<key>xpos</key>
-			<integer>355</integer>
-			<key>ypos</key>
-			<integer>1495</integer>
-		</dict>
 		<key>4BDAA711-25E9-4E7E-A30B-7997CFE501FC</key>
 		<dict>
 			<key>colorindex</key>
@@ -3465,6 +3477,15 @@ All commands start with ***lp***, so there's only one thing to remember.
 			<integer>260</integer>
 			<key>ypos</key>
 			<integer>725</integer>
+		</dict>
+		<key>9805CCBF-1BAC-43FB-B904-CF770377A45C</key>
+		<dict>
+			<key>note</key>
+			<string>lpass edit</string>
+			<key>xpos</key>
+			<integer>355</integer>
+			<key>ypos</key>
+			<integer>1485</integer>
 		</dict>
 		<key>996B73DF-8AFE-435D-A717-F8ECA40E7377</key>
 		<dict>
@@ -3754,7 +3775,7 @@ All commands start with ***lp***, so there's only one thing to remember.
 		<string>lpuser</string>
 	</array>
 	<key>version</key>
-	<string>2.2.0</string>
+	<string>2.2.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>
