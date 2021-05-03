@@ -1,6 +1,4 @@
 #!/bin/bash
 
-trap "rm -f items" EXIT
-
-${lppath} mv ${lpitem} "$*"
-${lppath} show --name ${lpitem}
+echo ${lppath} mv ${lpitem} "$*"
+echo ${lppath} show --name ${lpitem}

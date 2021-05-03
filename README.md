@@ -45,6 +45,10 @@ These can also be changed using the ***lpconfigure*** command (see below).
 
   Whether to post a nofication each time a field is copied to the clipboard.  Default is `true`.
 
+- **ShowFolders**
+
+  Show only folders in the initial results.  This lets you navigate your vault like using Finder.  Default is `false`.
+
 - **lppath**
 
   Location of the LastPass CLI program.  Default is `/usr/local/bin/lpass`.
@@ -52,7 +56,6 @@ These can also be changed using the ***lpconfigure*** command (see below).
 - **lpuser**
 
   Your LastPass username.  This is automatically set when you login.
-
 
 ### Commands
 
@@ -68,27 +71,25 @@ All commands start with ***lp***, so there's only one thing to remember.
 
 - **lpout**
 
-  Logout of LastPass.
+    Logout of LastPass.
 
 - **lpstat**
 
-  Show LastPass status.  Either "Logged in as..." or "Not logged in."
+    Show LastPass status.  Either "Logged in as..." or "Not logged in."
 
 - **lpass**
 
-	Copy an item's password to the clipboard.  Use these modifiers to copy other fields:
+  Copy an item's password to the clipboard.  Use these modifiers to copy other fields:
 
   - `Ctrl` Username
   - `Shift` URL
   - `CMD` Notes
+  - `Fn` Show all fields in a dialog window
 
   Or use the **Option** key to open a new menu with additional actions you can perform on the selected item.
 
   - ##### Launch
 	Open item's URL
-
-  - ##### Share
-	*Not yet implemented*
 
   - ##### Delete
 	Remove item (with confirmation)
@@ -99,6 +100,10 @@ All commands start with ***lp***, so there's only one thing to remember.
   - ##### Duplicate
 	Duplicate item
 
+  - ##### Show item
+    Show all fields in a dialog window for easy copy/paste
+
+  Only the `Option` moidifier is available for Secure Notes.  They are always displayed in a dialog window.
 
 - #### lpconfigure
 
@@ -112,6 +117,10 @@ All commands start with ***lp***, so there's only one thing to remember.
   - ##### Import items from a file
   - ##### Export items to a file
 
+- #### lpgen
+
+  Use LastPass to generate a random password.  You can specify the password length.  The default is `20`.  Use the `CMD` key to allow symbols in the password.
+
 ----
 
 <a name="otp"></a>
@@ -123,7 +132,6 @@ Like Authy, FreeOTP, Okta Verify, etc., but using your Mac and a SQLite database
 **YOU MUST PROTECT THE DATABASE**
 
 The data stored is as sensitive as your passwords.  If someone gains access to your database they can create copies of every virtual MFA device you have stored.
-
 
 There is an additional field, ***Username***, useful when you have multiple logins to the same account.  Eg., an AWS account where you have separate MFA devices for the root account and different IAM users.
 
