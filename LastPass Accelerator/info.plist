@@ -3236,7 +3236,7 @@ All commands start with ***lp***, so there's only one thing to remember.
   - ##### Show item
     Show all fields in a dialog window for easy copy/paste
 
-  Modifiers are not available for Secure Notes.  They are always displayed in a dialog window.
+  Only the `Option` moidifier is available for Secure Notes.  They are always displayed in a dialog window.
 
 - #### lpconfigure
 

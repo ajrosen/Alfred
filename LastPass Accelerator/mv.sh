@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo ${lppath} mv ${lpitem} "$*"
-echo ${lppath} show --name ${lpitem}
+${lppath} mv ${lpitem} "$*"
+${lppath} show --name ${lpitem}
