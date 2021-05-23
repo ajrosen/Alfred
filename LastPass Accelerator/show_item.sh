@@ -18,8 +18,7 @@ while [ $? != 0 ]; do
     item=$(echo "${lppass}" | 2>&- ${lppath} show ${lpitem})
 done
 
-# echo "${item}" | grep -v "\[id: ${lpitem}]$" > pb
-echo "${item}" > pb
+echo "${item}" | grep -v "\[id: ${lpitem}]$" > pb
 
 # Look for an icon that matches the note type
 type=$(grep '^NoteType: ' pb | sed 's/^NoteType: //')

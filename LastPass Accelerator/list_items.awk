@@ -25,9 +25,14 @@ function mods(valid, retval) {
 
 BEGIN {
     FS = ","
+
     split("command,control,function,shift", modifiers)
+
     x = tolower(arg)
-    n = 0
+    cURL = tolower(url)
+
+    nItems = 0
+    nCURLs = 0
 }
 
 
@@ -61,11 +66,25 @@ BEGIN {
 
     icon = type ".png"
 
-    # Filter matches
-    if ((tolower(title) ~ x) || (tolower(subtitle) ~ x) || (tolower(url) ~ x)) {
+    # Browser matches
+    if ((cURL != "") && (tolower(url) ~ cURL)) {
 	i = ",{"
 	i = i q("title") ":" q(title)
-	if (ENVIRON["ShowFolders"] != "true") { i = i "," q("uid") ":" q(id) }
+	i = i "," q("subtitle") ":" q(subtitle)
+	i = i "," q("arg") ":" q(a)
+	i = i "," q("icon") ":{" q("type") ":" q("fileicon") "," q("path") ":" q(browser) "}"
+	i = i "," q("variables") ":{" q("type") ":" q("browser") "," q("lpitem") ":" q(id) "}"
+	i = i "," q("autocomplete") ":" q(title)
+	i = i "}"
+
+	bItems[nCURLs++] = i
+    }
+
+    # Filter matches
+    else if ((tolower(title) ~ x) || (tolower(subtitle) ~ x) || (tolower(url) ~ x)) {
+	i = ",{"
+	i = i q("title") ":" q(title)
+	if ((ENVIRON["ShowFolders"] != "true") && (cURL == "")) { i = i "," q("uid") ":" q(id) }
 	i = i "," q("subtitle") ":" q(subtitle)
 	i = i "," q("arg") ":" q(a)
 	i = i "," q("icon") ":{" q("path") ":" q(icon) "}"
@@ -74,7 +93,7 @@ BEGIN {
 	if ((type == "group") || (type == "sn")) { i = i mods("false") }
 	i = i "}"
 
-	items[n++] = i
+	items[nItems++] = i
     }
 }
 
@@ -83,5 +102,6 @@ BEGIN {
 # Print it
 
 END {
+    for (i in bItems) { print bItems[i] }
     for (i in items) { print items[i] }
 }
