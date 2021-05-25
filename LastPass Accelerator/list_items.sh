@@ -42,8 +42,6 @@ awk -v arg="$*" \
     -v f_url="${alfred_workflow_cache}/url" \
     -f list_items.awk < "${alfred_workflow_cache}/id" > "${alfred_workflow_cache}/items"
 
-C=$(cat "${alfred_workflow_cache}/items" | wc -l)
-
 # If there are no uid fields, show browser matches first and groups last
 echo '{"items":[{}'
 grep '"type":"browser"' "${alfred_workflow_cache}/items" | sort -u

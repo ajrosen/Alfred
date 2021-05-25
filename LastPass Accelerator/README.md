@@ -4,15 +4,15 @@ Interact with [LastPass CLI](https://github.com/lastpass/lastpass-cli).
 
 LastPass Accelerator uses the LastPass CLI.  The easiest way to install it is with [brew](https://brew.sh/):
 
-`brew install lastpass-cli`
+```
+brew install lastpass-cli
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
 
-If you have not installed brew, first run this:
-
-`bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
 ### Variables
 
-These can also be changed using the ***lpconfigure*** command (see below).
+These can also be changed using the [***lpconfigure***](#lpconfigure) command.
 
 - **ClipboardTimeout**
 
@@ -34,6 +34,7 @@ These can also be changed using the ***lpconfigure*** command (see below).
 
   Your LastPass username.  This is automatically set when you login.
 
+
 ### Commands
 
 All commands start with ***lp***, so there's only one thing to remember.
@@ -46,13 +47,16 @@ All commands start with ***lp***, so there's only one thing to remember.
 
     If you have not enabled MFA for LastPass [do it now](https://www.lastpass.com/two-factor-authentication)!  Until then, leave this blank.
 
+
 - **lpout**
 
     Logout of LastPass.
 
+
 - **lpstat**
 
     Show LastPass status.  Either "Logged in as..." or "Not logged in."
+
 
 - **lpass**
 
@@ -60,10 +64,11 @@ All commands start with ***lp***, so there's only one thing to remember.
   
   - Safari
   - Chrome
+  - Firefox<sup>[1](#1)</sup>
   - Opera
   - Edge
-  
-  Use these modifiers to copy other fields:
+
+  Use these modifiers to copy other fields<sup>[2](#2)</sup>:
 
   - `Ctrl` Username
   - `Shift` URL
@@ -87,11 +92,11 @@ All commands start with ***lp***, so there's only one thing to remember.
   - ##### Show item
     Show all fields in a dialog window for easy copy/paste
 
-  Only the `Option` moidifier is available for Secure Notes.  They are always displayed in a dialog window.
 
 - #### lpconfigure
 
-  Quickly view and modify the workflow's variables.
+  Quickly view and modify the workflow's [variables](#variables).
+
 
 - #### lpmanage
 
@@ -101,6 +106,13 @@ All commands start with ***lp***, so there's only one thing to remember.
   - ##### Import items from a file
   - ##### Export items to a file
 
+
 - #### lpgen
 
   Use LastPass to generate a random password.  You can specify the password length.  The default is `20`.  Use the `CMD` key to allow symbols in the password.
+
+-------------------------------------------------------------------------------
+
+<a name="1"/>*<sup>1</sup> Support for Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration) and [alfred-firefox workflow](https://github.com/deanishe/alfred-firefox/releases/latest).*
+
+<a name="2"/>*<sup>2</sup> Only the `Option` moidifier is available for Secure Notes.  They are always displayed in a dialog window.*
