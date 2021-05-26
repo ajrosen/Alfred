@@ -73,7 +73,7 @@ BEGIN {
 	i = i "," q("subtitle") ":" q(subtitle)
 	i = i "," q("arg") ":" q(a)
 	i = i "," q("icon") ":{" q("type") ":" q("fileicon") "," q("path") ":" q(browser) "}"
-	i = i "," q("variables") ":{" q("type") ":" q("browser") "," q("lpitem") ":" q(id) "}"
+	i = i "," q("variables") ":{" q("type") ":" q(type) "," q("lpitem") ":" q(id) "}"
 	i = i "," q("autocomplete") ":" q(title)
 	i = i "}"
 

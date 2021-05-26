@@ -25,7 +25,7 @@ if [ $# == 0 ]; then
     browser=$(echo ${b} | cut -d\| -f1)
     url=$(echo ${b} | cut -d\| -f2 | cut -d/ -f3)
 
-    ${lppath} ls --sync=no --format %ai,%au | sort | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/id"
+    ${lppath} ls --sync=auto --format %ai,%au | sort | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/id"
     ${lppath} ls --sync=no --format %ai,%aN | sort | cut -d, -f2- | sed 's/\\/\//g;s/"/\\"/g' > "${alfred_workflow_cache}/path"
     ${lppath} ls --sync=no --format %ai,%al | sort | cut -d, -f2- | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/url"
 fi
@@ -39,7 +39,6 @@ awk -v arg="$*" \
 
 # If there are no uid fields, show browser matches first and groups last
 echo '{"items":[{}'
-grep '"type":"browser"' "${alfred_workflow_cache}/items" | sort -u
-grep -v -e '"type":"group"' -e '"type":"browser"' "${alfred_workflow_cache}/items"
+grep -v '"type":"group"' "${alfred_workflow_cache}/items"
 grep '"type":"group"' "${alfred_workflow_cache}/items" | sort -u
 echo ']}'
