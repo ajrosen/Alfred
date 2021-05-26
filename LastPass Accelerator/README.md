@@ -115,4 +115,4 @@ All commands start with ***lp***, so there's only one thing to remember.
 
 <a name="1"/>*<sup>1</sup> Support for Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration) and [alfred-firefox workflow](https://github.com/deanishe/alfred-firefox/releases/latest).*
 
-<a name="2"/>*<sup>2</sup> Only the `Option` moidifier is available for Secure Notes.  They are always displayed in a dialog window.*
+<a name="2"/>*<sup>2</sup> Only the `Option` modifier is available for Secure Notes.  They are always displayed in a dialog window.*
