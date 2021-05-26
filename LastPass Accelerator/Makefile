@@ -2,7 +2,7 @@ SCRIPTS += com.apple.Safari
 SCRIPTS += com.google.Chrome
 SCRIPTS += com.microsoft.edgemac
 SCRIPTS += com.operasoftware.Opera
-SCRIPTS += org.mozilla.Firefox
+SCRIPTS += org.mozilla.firefox
 
 REPO = ~/Sync/GitHub/Alfred/LastPass\ Accelerator
 

@@ -17,8 +17,6 @@ if [ $? != 0 ]; then
     exit
 fi
 
-B=$(/usr/local/bin/gdate +%s%N)
-
 # No filter argument (first run)
 if [ $# == 0 ]; then
     mkdir -p "${alfred_workflow_cache}"
@@ -31,9 +29,6 @@ if [ $# == 0 ]; then
     ${lppath} ls --sync=no --format %ai,%aN | sort | cut -d, -f2- | sed 's/\\/\//g;s/"/\\"/g' > "${alfred_workflow_cache}/path"
     ${lppath} ls --sync=no --format %ai,%al | sort | cut -d, -f2- | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/url"
 fi
-
-E=$(/usr/local/bin/gdate +%s%N)
-T=$(( (${E} - ${B}) / 1000000 ))
 
 awk -v arg="$*" \
     -v browser="${browser}" \
