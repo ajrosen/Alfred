@@ -4,7 +4,7 @@
 
 .bail on
 
-create table totp (
+create table mlfs (
        "issuer",
        "account",
        "username",
@@ -14,6 +14,10 @@ create table totp (
        "otpauth" generated always as ("otpauth://totp/" || item || "?secret=" || secret_key || "&issuer=" || issuer) virtual
 );
 
-.print New OTP database created
+insert into mlfs (issuer, account, username, secret_key) SELECT issuer, account, username, secret_key from totp;
+drop table totp;
+alter table mlfs rename to totp;
+
+.print OTP database upgraded
 
 EOF

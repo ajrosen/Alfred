@@ -2,4 +2,10 @@
 
 export PATH=/usr/local/bin:$PATH
 
-oathtool -b --totp $1
+case ${app} in
+    "SMS")
+	echo $1	
+	;;
+    *)
+	oathtool -b --totp $1
+esac
