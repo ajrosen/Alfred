@@ -5,8 +5,8 @@ Interact with [LastPass CLI](https://github.com/lastpass/lastpass-cli).
 LastPass Accelerator uses the LastPass CLI.  The easiest way to install it is with [brew](https://brew.sh/):
 
 ```
-brew install lastpass-cli
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew install lastpass-cli
 ```
 
 
