@@ -87,6 +87,7 @@ BEGIN {
 	if ((ENVIRON["ShowFolders"] != "true") && (cURL == "")) { i = i "," q("uid") ":" q(id) }
 	i = i "," q("subtitle") ":" q(subtitle)
 	i = i "," q("arg") ":" q(a)
+	i = i "," q("action") ":" q(title)
 	i = i "," q("icon") ":{" q("path") ":" q(icon) "}"
 	i = i "," q("variables") ":{" q("type") ":" q(type) "," q("lpitem") ":" q(id) "}"
 	i = i "," q("autocomplete") ":" q(title)

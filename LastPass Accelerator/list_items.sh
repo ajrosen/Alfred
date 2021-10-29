@@ -22,8 +22,8 @@ if [ $# == 0 ]; then
     mkdir -p "${alfred_workflow_cache}"
 
     b=$(./get_url.applescript)
-    browser=$(echo ${b} | cut -d\| -f1)
-    url=$(echo ${b} | cut -d\| -f2 | cut -d/ -f3)
+    browser=$(echo ${b} | awk -F\| '{ print $1 }')
+    url=$(echo ${b} | awk 'BEGIN { FS="|" } { x = $2 } END { FS="/" ; $0 = x ; print $3}')
 
     ${lppath} ls --sync=auto --format %ai,%au | sort | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/id"
     ${lppath} ls --sync=no --format %ai,%aN | sort | cut -d, -f2- | sed 's/\\/\//g;s/"/\\"/g' > "${alfred_workflow_cache}/path"
