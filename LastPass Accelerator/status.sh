@@ -1,3 +1,5 @@
 #!/bin/bash
 
-${lppath} status
+. ./env.sh
+
+lpass status

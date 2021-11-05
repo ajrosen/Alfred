@@ -11,6 +11,9 @@ REPO = ~/Sync/GitHub/Alfred/LastPass\ Accelerator
 .applescript:
 	osacompile -o $@ $?
 
+diff:
+	rsync -avn --del --delete-excluded --exclude=info.plist . ${REPO}
+
 scripts: ${SCRIPTS}
 
 checkin: scripts

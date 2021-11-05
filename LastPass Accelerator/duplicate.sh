@@ -1,5 +1,7 @@
 #!/bin/bash
 
-${lppath} duplicate ${lpitem}
+. ./env.sh
 
-echo Duplicated $(${lppath} show --name ${lpitem})
+lpass duplicate ${lpitem}
+
+echo Duplicated $(lpass show --name ${lpitem})

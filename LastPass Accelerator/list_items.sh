@@ -1,6 +1,8 @@
 #!/bin/bash
 
-${lppath} status -q
+. ./env.sh
+
+lpass status -q
 
 # Not logged in
 if [ $? != 0 ]; then
@@ -25,9 +27,9 @@ if [ $# == 0 ]; then
     browser=$(echo ${b} | awk -F\| '{ print $1 }')
     url=$(echo ${b} | awk 'BEGIN { FS="|" } { x = $2 } END { FS="/" ; $0 = x ; print $3}')
 
-    ${lppath} ls --sync=auto --format %ai,%au | sort | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/id"
-    ${lppath} ls --sync=no --format %ai,%aN | sort | cut -d, -f2- | sed 's/\\/\//g;s/"/\\"/g' > "${alfred_workflow_cache}/path"
-    ${lppath} ls --sync=no --format %ai,%al | sort | cut -d, -f2- | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/url"
+    lpass ls --sync=auto --format %ai,%au | sort | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/id"
+    lpass ls --sync=no --format %ai,%aN | sort | cut -d, -f2- | sed 's/\\/\//g;s/"/\\"/g' > "${alfred_workflow_cache}/path"
+    lpass ls --sync=no --format %ai,%al | sort | cut -d, -f2- | sed 's/["\\]/\\&/g' > "${alfred_workflow_cache}/url"
 fi
 
 awk -v arg="$*" \

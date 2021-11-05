@@ -1,3 +1,5 @@
 #!/bin/bash
 
-${lppath} logout -f
+. ./env.sh
+
+lpass logout -f

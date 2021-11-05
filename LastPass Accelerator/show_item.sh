@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export LPASS_DISABLE_PINENTRY=1
+. ./env.sh
 
 cd "${alfred_workflow_cache}"
 
@@ -10,12 +10,12 @@ icondir="${alfred_preferences}/workflows/${alfred_workflow_uid}"
 icon="${icondir}/icon.png"
 
 # Get the item
-item=$(echo "${lppass}" | 2>&- ${lppath} show ${lpitem})
+item=$(echo "${lppass}" | 2>&- lpass show ${lpitem})
 
 while [ $? != 0 ]; do
     lppass=$(${alfred_preferences}/workflows/${alfred_workflow_uid}/reprompt.applescript)
     [ "${lppass}" == "" ] && exit
-    item=$(echo "${lppass}" | 2>&- ${lppath} show ${lpitem})
+    item=$(echo "${lppass}" | 2>&- lpass show ${lpitem})
 done
 
 echo "${item}" | grep -v "\[id: ${lpitem}]$" > pb

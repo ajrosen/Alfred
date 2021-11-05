@@ -1,4 +1,6 @@
 #!/bin/bash
 
-${lppath} status -q
+. ./env.sh
+
+lpass status -q
 echo -n $?

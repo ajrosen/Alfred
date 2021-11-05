@@ -1,8 +1,10 @@
 #!/bin/bash
 
+. ./env.sh
+
 echo '{ "items": [ {}'
 
-${lppath} ls --format %aN,%al | grep ',http://group$' | cut -d, -f1 | sort -u | sed 's:/$::g;s:\\:/:g' | while read; do
+lpass ls --format %aN,%al | grep ',http://group$' | cut -d, -f1 | sort -u | sed 's:/$::g;s:\\:/:g' | while read; do
     echo ',{ "title": "'${REPLY}'", "arg": "'${REPLY}'", "icon": { "path": "group.png" } }'
 done
 
@@ -10,7 +12,7 @@ echo '] }'
 
 exit
 
-[ ! -f items ] && ${lppath} ls --format %aN | tr \\\\ / > items
+[ ! -f items ] && lpass ls --format %aN | tr \\\\ / > items
 
 echo '{ "variables": { "next": "" }, "items": [ {}'
 

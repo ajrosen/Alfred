@@ -1,4 +1,6 @@
 #!/bin/bash
 
-${lppath} mv ${lpitem} "$*"
-${lppath} show --name ${lpitem}
+. ./env.sh
+
+lpass mv ${lpitem} "$*"
+lpass show --name ${lpitem}

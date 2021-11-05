@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export LPASS_DISABLE_PINENTRY=1
+. ./env.sh
 
 export CURRENT=
 export NEW="x"

@@ -1,3 +1,5 @@
 #!/bin/bash
 
-${lppath} generate --sync=no ${symbols} -c lpa.$$ ${1:-20}
+. ./env.sh
+
+lpass generate --sync=no ${symbols} -c lpa.$$ ${1:-20}

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-export LPASS_DISABLE_PINENTRY=1
+. ./env.sh
 
-echo "${lppass}" | ${lppath} login "${lpuser}"
+echo "${lppass}" | lpass login "${lpuser}"
