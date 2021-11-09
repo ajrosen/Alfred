@@ -50,6 +50,7 @@ BEGIN {
     type = "password"
     a = id
 
+    # Folders
     if (url == "http://group") {
 	if (arg == title) { next }
 	type = "group"
@@ -59,6 +60,7 @@ BEGIN {
 	if ((ENVIRON["ShowFolders"] == "true") && (length(arg) == 0)) { next }
     }
 
+    # Secure notes
     if (url == "http://sn") {
 	type = "sn"
 	subtitle = "Secure Note"
@@ -73,7 +75,7 @@ BEGIN {
 	i = i "," q("subtitle") ":" q(subtitle)
 	i = i "," q("arg") ":" q(a)
 	i = i "," q("icon") ":{" q("type") ":" q("fileicon") "," q("path") ":" q(browser) "}"
-	i = i "," q("variables") ":{" q("type") ":" q(type) "," q("lpitem") ":" q(id) "}"
+	i = i "," q("variables") ":{" q("type") ":" q(type) "," q("lpitem") ":" q(id) "," q("lpname") ":" q(title) "," q("lpusername") ":" q(subtitle) "," q("lpurl") ":" q(url) "}"
 	i = i "," q("autocomplete") ":" q(title)
 	i = i "}"
 
@@ -89,7 +91,7 @@ BEGIN {
 	i = i "," q("arg") ":" q(a)
 	i = i "," q("action") ":" q(title)
 	i = i "," q("icon") ":{" q("path") ":" q(icon) "}"
-	i = i "," q("variables") ":{" q("type") ":" q(type) "," q("lpitem") ":" q(id) "}"
+	i = i "," q("variables") ":{" q("type") ":" q(type) "," q("lpitem") ":" q(id) "," q("lpname") ":" q(title) "," q("lpusername") ":" q(subtitle) "," q("lpurl") ":" q(url) "}"
 	i = i "," q("autocomplete") ":" q(title)
 	if ((type == "group") || (type == "sn")) { i = i mods("false") }
 	i = i "}"
