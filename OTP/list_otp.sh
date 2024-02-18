@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 
 CHATS=~/Library/Messages/chat.db
 MSG_AGE=600			# 10 minutes

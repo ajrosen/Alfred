@@ -2,6 +2,10 @@
 
 Alfred workflows
 
+- [Bitwarden Accelerator](https://github.com/ajrosen/Alfred/tree/master/Bitwarden%20Accelerator)
+
+  Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)
+
 - [LastPass Accelerator](https://github.com/ajrosen/Alfred/tree/master/LastPass%20Accelerator)
 
   Interact with [LastPass CLI](https://github.com/lastpass/lastpass-cli)
