@@ -30,6 +30,10 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 * Limit searches to a single vault and/or collection to prevent shoulder-surfing
 * View an item in a separate window to copy/paste multiple fields easily
 
+Bitwarden Accelerator requires the [Bitwarden CLI](https://bitwarden.com/help/cli/) and [jq](https://jqlang.github.io/jq/) packages.  They can both be installed with Homebrew.
+
+`$ brew install bitwarden-cli jq`
+
 ---
 
 <a name="options"></a>
@@ -177,5 +181,4 @@ Deletes the item from your vault.
 You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.  However, Bitwarden Accelerator *does not support* recovering items from your vault's Trash.
 
 ---
-* *Bitwarden Accelerator makes extensive use of [jq](https://jqlang.github.io/jq/).  If the [Bitwarden CLI](https://bitwarden.com/help/cli/) or [jq](https://jqlang.github.io/jq/) package is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/) must already be installed.*
 * *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration) and [alfred-firefox workflow](https://github.com/deanishe/alfred-firefox/releases/latest).*
