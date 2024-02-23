@@ -21,3 +21,7 @@ Alfred workflows
 - [OTP](https://github.com/ajrosen/Alfred/tree/master/OTP)
 
   Like Authy, FreeOTP, Okta Verify, etc., but using your Mac and a SQLite database
+
+- [Trash Helper](https://github.com/ajrosen/Alfred/tree/master/Trash%20Helper)
+
+  Show what's in your Trash and how big it is.  Empty it.  Open it in Finder.
