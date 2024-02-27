@@ -14,6 +14,10 @@ Alfred workflows
 
   Show your external IP address by sending a DNS query to resolver1.opendns.com
 
+- [Uebersicht Refresher](https://github.com/ajrosen/Alfred/tree/master/Uebersicht%20Refresher)
+
+  Tell [Uebersicht](https://github.com/felixhageloh/uebersicht) to refresh the chosen widget now
+
 - [GeekTool Refresher](https://github.com/ajrosen/Alfred/tree/master/GeekTool%20Refresher)
 
   Tell [GeekTool](https://www.tynsoe.org/geektool/) to refresh the chosen geeklet now
