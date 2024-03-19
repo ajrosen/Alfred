@@ -2,7 +2,7 @@
 
 Alfred workflows
 
-- [Bitwarden Accelerator](https://github.com/ajrosen/Alfred/tree/master/Bitwarden%20Accelerator)
+- [Bitwarden Accelerator](https://github.com/ajrosen/Bitwarden-Accelerator)
 
   Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)
 
