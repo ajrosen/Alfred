@@ -1,6 +1,8 @@
 #!/bin/bash
 
-2>&1 sqlite3 "${db}" <<EOF
+export PATH=/bin:/usr/bin
+
+2>&1 sqlite3 "${OTP}" <<EOF
 
 .bail on
 

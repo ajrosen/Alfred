@@ -100,10 +100,10 @@ on splitURI(uri)
     set l to length of label
 
     if c is not 0 then
-	set Issuer to (characters 1 through (c - 1) of label) as text
-	set Account to (characters (c + 1) through l of label) as text
+	set Issuer to decodeText((characters 1 through (c - 1) of label) as text)
+	set Account to decodeText((characters (c + 1) through l of label) as text)
     else
-	set Account to label
+	set Account to decodeText(label)
     end if
 end splitURI
 
@@ -115,6 +115,8 @@ set T to "Add new MFA device"
 set B to {"OK", "Cancel"}
 set N to {"Next", "Cancel"}
 
+set zbarimg to system attribute "ZBARIMG"
+
 # Check clipboard
 try
     set f to (system attribute "alfred_workflow_cache") & "/clipboard.jpg"
@@ -122,7 +124,7 @@ try
     tell application "Image Events" to write (the clipboard as JPEG picture) to fd
     close access fd
 
-    set uri to do shell script "/usr/local/bin/zbarimg -q --raw " & quoted form of f
+    set uri to do shell script zbarimg & " -q --raw " & quoted form of f
     splitURI(uri)
 end try
 
@@ -134,9 +136,9 @@ set Issuer to text returned of d
 
 repeat while button returned of d = "Import" or Issuer = ""
     set f to POSIX path of (choose file of type {"public.image"} with showing package contents)
-    set uri to do shell script "/usr/local/bin/zbarimg -q " & quoted form of f
+    set uri to do shell script zbarimg & " -q " & quoted form of f
     splitURI(uri)
-    
+
     set d to display dialog "Enter Issuer or import QR code" buttons N & "Import" default answer Issuer default button "Next" with title T
     set Issuer to text returned of d
 end repeat
@@ -153,7 +155,7 @@ set Username to text returned of (display dialog "Enter Username (optional)" but
 # Secret Key
 repeat while SecretKey = ""
     set SecretKey to text returned of (display dialog "Enter Secret Key" buttons B default answer SecretKey default button "OK" with title T)
-    
+
     # Remove spaces
     set AppleScript's text item delimiters to {" "}
     set msbc to every text item of SecretKey as list
@@ -162,7 +164,7 @@ repeat while SecretKey = ""
 end repeat
 
 # Insert into db
-set db to system attribute "db"
+set db to system attribute "OTP"
 
-do shell script "sqlite3 " & db & " \"insert into totp (issuer, account, username, secret_key) values ('" & Issuer & "','" & Account & "','" & Username & "','" & SecretKey & "')\""
-do shell script "sqlite3 " & db & " \"select item from totp where secret_key = '" & SecretKey & "'\""
+do shell script "sqlite3 -init /dev/null " & db & " \"insert into totp (issuer, account, username, secret_key) values ('" & Issuer & "','" & Account & "','" & Username & "','" & SecretKey & "')\""
+do shell script "sqlite3 -init /dev/null " & db & " \"select item from totp where secret_key = '" & SecretKey & "'\""

@@ -1,10 +1,12 @@
 #!/bin/bash
 
-export PATH=/opt/homebrew/bin:$PATH
+export PATH=/bin:/usr/bin
 
-KEY=$(sqlite3 ${db} "select replace(otpauth,' ','%20') from totp where secret_key = '${1}'")
-ITEM=$(sqlite3 ${db} "select item from totp where secret_key = '${1}'")
+KEY=$(sqlite3 "${OTP}" "select replace(otpauth,' ','%20') from totp where secret_key = '${1}'")
+ITEM=$(sqlite3 "${OTP}" "select item from totp where secret_key = '${1}'")
+
+echo -n "${1}" | pbcopy
 
 echo "${ITEM}"
 echo
-qrencode -o - -t asciii "${KEY}"
+${QRENCODE} -o - -t asciii "${KEY}"

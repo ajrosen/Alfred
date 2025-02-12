@@ -7,6 +7,8 @@ Like [Authy](https://authy.com), [OTP Auth](https://cooperrs.de/otpauth.html), [
 
 The data stored is as sensitive as your passwords.  If someone gains access to your database they can create copies of every virtual MFA device you have stored.
 
+This is true for all authenticator applications.
+
 I recommend storing the database locally, or using a cloud storage service with end-to-end encryption.  Eg., [Sync.com](https://www.sync.com/?_sync_refer=e50112).
 
 
@@ -27,7 +29,7 @@ You can add a device with its QR code or with its secret key.
 
 - To use a QR code, either copy the image to the clipboard or save the image to a file.  When OTP finds a valid QR code in the clipboard (or you import from a file) it will fill in the form fields for you.
 
-- When a provider shows the QR code there should be an option to show the secret key instead.  Copy and paste that into the form when prompted.
+- When a provider shows the QR code there should be an option to show the *secret key* instead.  Copy and paste that into the form when prompted.
 
 
 ### Getting a token
