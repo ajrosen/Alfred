@@ -22,7 +22,7 @@ Alfred workflows
 
   Tell [GeekTool](https://www.tynsoe.org/geektool/) to refresh the chosen geeklet now
 
-- [OTP](https://github.com/ajrosen/Alfred/tree/master/OTP)
+- [OTP](https://github.com/ajrosen/OTP)
 
   Like Authy, FreeOTP, Okta Verify, etc., but using your Mac and a SQLite database
 
