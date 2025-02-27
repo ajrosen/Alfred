@@ -10,6 +10,10 @@ Alfred workflows
 
   Interact with [LastPass CLI](https://github.com/lastpass/lastpass-cli)
 
+- [Word](https://github.com/ajrosen/alfred-word)
+
+  Look up word definitions, synonyms, antonyms, and examples directly in Alfred
+
 - [External IP](https://github.com/ajrosen/Alfred/tree/master/External%20IP)
 
   Show your external IP address by sending a DNS query to resolver1.opendns.com
