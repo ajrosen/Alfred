@@ -2,6 +2,8 @@
 
 # shellcheck disable=2012
 
+export PATH=/bin:/usr/bin
+
 TRASH="${HOME}/.Trash/"
 MOBILE="${HOME}/Library/Mobile Documents/.Trash/"
 
@@ -16,7 +18,7 @@ DU="${BYTES} KB"
 
 echo '{ "items": ['
 
-printf ' { "title": "Open Trash in Finder (%d items)", "arg": "open"' "${ITEMS}"
+printf ' { "title": "Open Trash in Finder (%d items)", "subtitle": "Cmd-Enter to empty trash", "arg": "open"' "${ITEMS}"
 echo ',"mods":{"alt":{"valid":"false","subtitle":""},"cmd":{"valid":"true","subtitle":"Empty Trash"}}}'
 
 printf ', { "title": "Empty Trash (%s)", "arg": "empty"' "${DU}"
