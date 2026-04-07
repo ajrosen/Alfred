@@ -6,6 +6,10 @@ Alfred workflows
 
   Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)
 
+- [sts](https://github.com/ajrosen/sts)
+
+  Configure an AWS profile using credentials found in the clipboard
+
 - [LastPass Accelerator](https://github.com/ajrosen/Alfred/tree/master/LastPass%20Accelerator)
 
   Interact with [LastPass CLI](https://github.com/lastpass/lastpass-cli)
